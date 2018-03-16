@@ -5,8 +5,8 @@ Installation
 ============
 
 
-Stable release
---------------
+Stable release (TODO)
+---------------------
 
 To install Wagtail App Pages, run this command in your terminal:
 
