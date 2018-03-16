@@ -7,8 +7,7 @@ Welcome to Wagtail App Pages's documentation!
 
    readme
    installation
-   configuration
-   modules
+   usage
    contributing
    authors
    history
