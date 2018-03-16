@@ -41,3 +41,4 @@ docs/_build/
 
 # other
 tags
+.python-version

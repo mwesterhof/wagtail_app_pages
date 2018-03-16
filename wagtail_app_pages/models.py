@@ -1,6 +1,3 @@
-# TODO: document dependencies, this will only work for django >= 2.0
-# TODO: document the fact that namespaced url includes don't work
-
 from django.urls import URLResolver
 from django.urls.exceptions import Resolver404
 from django.urls.resolvers import RegexPattern

@@ -11,7 +11,9 @@ with open('README.md') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = []
+requirements = [
+    'wagtail>=2.0,<2.1',
+]
 
 setup_requirements = []
 
@@ -41,7 +43,7 @@ setup(
     name='wagtail_app_pages',
     packages=find_packages(include=['wagtail_app_pages']),
     setup_requires=setup_requirements,
-    test_suite='tests',
+    test_suite='tests.testproject.testproject.tests',
     tests_require=test_requirements,
     url='https://github.com/mwesterhof/wagtail_app_pages',
     version='0.1.0',
