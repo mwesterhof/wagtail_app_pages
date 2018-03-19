@@ -34,7 +34,7 @@ valid django url config module:
     # file: blog/urls.py
     from django.urls import path
 
-    from .views import TestView
+    from .views import A
 
 
     urlpatterns = [
