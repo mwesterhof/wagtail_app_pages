@@ -1,8 +1,7 @@
-Wagtail App Pages
-=================
+# Wagtail App Pages
 
-Full MVC support for wagtail pages
 
+This module provides full MVC support for wagtail pages.
 
 * Free software: MIT license
 * Documentation: https://wagtail-app-pages.readthedocs.io.
