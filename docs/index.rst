@@ -1,5 +1,5 @@
 Welcome to Wagtail App Pages's documentation!
-======================================
+=============================================
 
 .. toctree::
    :maxdepth: 2
@@ -8,9 +8,11 @@ Welcome to Wagtail App Pages's documentation!
    readme
    installation
    usage
+   examples
    contributing
    authors
    history
+   modules
 
 Indices and tables
 ==================
