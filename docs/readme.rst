@@ -5,10 +5,8 @@ This module provides full MVC support for wagtail pages. Using it, it's possible
 url configs and views. It addresses the same problem solved by wagtail's own RoutablePageMixin, without breaking clean
 MVC principles.
 
-
 * Free software: MIT license
 * Documentation: https://wagtail-app-pages.readthedocs.io.
-
 
 Features
 --------
