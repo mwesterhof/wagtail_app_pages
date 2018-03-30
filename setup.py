@@ -23,7 +23,7 @@ setup(
     author="Marco Westerhof",
     author_email='westerhof.marco@gmail.com',
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
@@ -46,6 +46,6 @@ setup(
     test_suite='tests.testproject.testproject.tests',
     tests_require=test_requirements,
     url='https://github.com/mwesterhof/wagtail_app_pages',
-    version='0.1.0',
+    version='0.2.0',
     zip_safe=False,
 )
