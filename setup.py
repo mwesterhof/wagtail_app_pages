@@ -46,6 +46,6 @@ setup(
     test_suite='tests.testproject.testproject.tests',
     tests_require=test_requirements,
     url='https://github.com/mwesterhof/wagtail_app_pages',
-    version='0.2.0',
+    version='0.2.1',
     zip_safe=False,
 )
