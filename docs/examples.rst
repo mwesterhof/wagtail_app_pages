@@ -84,7 +84,7 @@ The following example shows how to perform these lookups from the template:
     <ul>
         {% for article in article_list %}
         <li>
-            <a href="{% page_url 'article_detail' slug=article.slug %}">{{ article }}</a>
+            <a href="{% app_page_url 'article_detail' slug=article.slug %}">{{ article }}</a>
         </li>
         {% endfor %}
     </ul>
