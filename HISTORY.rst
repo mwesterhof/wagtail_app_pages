@@ -2,6 +2,11 @@
 History
 =======
 
+0.2.2 (2018-04-19)
+------------------
+
+* add context processor to provide parent_page to context
+
 0.2.1 (2018-04-10)
 ------------------
 
