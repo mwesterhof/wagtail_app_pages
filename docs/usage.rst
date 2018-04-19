@@ -9,9 +9,26 @@ To use Wagtail App Pages in your project, simply add it to your INSTALLED_APPS:
 .. code-block:: python
 
     INSTALLED_APPS = [
-        ...
+        # ...
         'wagtail_app_pages',
-        ...
+        # ...
+    ]
+
+use the provided context processor:
+
+.. code-block:: python
+
+    TEMPLATES = [
+        {
+            # ...
+            'OPTIONS': {
+                'context_processors': [
+                    # ...
+                    'wagtail_app_pages.context_processors.parent_page',
+                    # ...
+                ],
+            },
+        },
     ]
 
 and use the provided mixin in your page model(s):
