@@ -71,8 +71,8 @@ docs: ## generate Sphinx HTML documentation, including API docs
 servedocs: docs
 	$(BROWSER) docs/_build/html/index.html
 
-release: dist ## package and upload a release
-	twine upload dist/*
+release: ## package and upload a release
+	python setup.py sdist upload
 
 dist: clean ## builds source and wheel package
 	python setup.py sdist
