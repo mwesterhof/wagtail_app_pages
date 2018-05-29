@@ -1,7 +1,6 @@
-from django.urls import URLResolver
 from django.urls.exceptions import Resolver404
-from django.urls.resolvers import RegexPattern
-from wagtail.core.url_routing import RouteResult
+
+from wagtail_app_pages.compatibility import get_resolver, RouteResult
 
 
 class AppPageMixin:
@@ -15,7 +14,7 @@ class AppPageMixin:
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self._apppage_url_resolver = URLResolver(RegexPattern(r'^{}'.format(self.url)), self.url_config)
+        self._apppage_url_resolver = get_resolver(self.url, self.url_config)
 
     def route(self, request, path_components):
         # url config takes precedence over normal wagtail routing
