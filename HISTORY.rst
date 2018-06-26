@@ -2,6 +2,11 @@
 History
 =======
 
+NEXT
+----
+
+* Fix page preview for root url
+
 0.2.3 (2018-05-29)
 ------------------
 

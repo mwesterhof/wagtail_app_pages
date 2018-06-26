@@ -39,3 +39,7 @@ class AppPageMixin:
             view.view_class.parent_page = self
 
         return view(request, *args, **kwargs)
+
+    def serve_preview(self, request, mode_name):
+        result = self.route(request, [])
+        return self.serve(request, *result.args)
