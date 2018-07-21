@@ -1,6 +1,8 @@
+from django.shortcuts import get_object_or_404
 from django.urls.exceptions import Resolver404
 
-from wagtail_app_pages.compatibility import get_resolver, RouteResult
+from wagtail_app_pages.compatibility import get_resolver, PageRevision, RouteResult
+from wagtail_app_pages.utils import extract_params
 
 
 class AppPageMixin:
@@ -8,28 +10,27 @@ class AppPageMixin:
     def url_config(self):
         raise NotImplementedError('url_config')
 
-    @property
-    def is_preview_instance(self):
-        served_through_preview = getattr(self, '_served_through_preview', False)
-        return served_through_preview
-
-    @staticmethod
-    def _get_url_components(url):
-        url_parts = url.split('?', 1)
-        if len(url_parts) == 1:
-            return url, None
-        return url_parts
+    @classmethod
+    def from_json(cls, json_data):
+        # we're overriding this method to intercept the revision data
+        revision = PageRevision.objects.filter(content_json=json_data).first()
+        obj = super().from_json(json_data)
+        obj._loaded_from_revision = revision.pk
+        return obj
 
     def reverse(self, name, *args, **kwargs):
         sub_url = self._apppage_url_resolver.reverse(name, *args, **kwargs)
         url = self.url + sub_url.lstrip('/')
-        url, query_string = self._get_url_components(url)
+        url, query_string = extract_params(url)
 
-        if self.is_preview_instance:
+        revision_id = getattr(self, '_loaded_from_revision', None)
+        if revision_id:
+            revision_query = 'apppage_revision={}'.format(revision_id)
+
             if query_string:
-                query_string += '&preview'
+                query_string += '&' + revision_query
             else:
-                query_string = 'preview'
+                query_string = revision_query
 
         if query_string:
             return '?'.join([url, query_string])
@@ -57,8 +58,11 @@ class AppPageMixin:
             return super().serve(request, *args, **kwargs)
 
         page_instance = self
-        if request.GET.get('preview') is not None:
-            page_instance = page_instance.get_latest_revision_as_page()
+        revision_id = request.GET.get('apppage_revision')
+        if revision_id is not None:
+            revision = get_object_or_404(self.revisions, id=revision_id)
+            page_instance = revision.as_page_object()
+            self._loaded_from_revision = revision_id
 
         request.parent_page = page_instance
 
@@ -69,6 +73,5 @@ class AppPageMixin:
         return view(request, *args, **kwargs)
 
     def serve_preview(self, request, mode_name):
-        self._served_through_preview = True
         result = self.route(request, [])
         return self.serve(request, *result.args)
