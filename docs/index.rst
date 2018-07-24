@@ -9,6 +9,7 @@ Welcome to Wagtail App Pages's documentation!
    installation
    usage
    examples
+   caveats
    contributing
    authors
    history
