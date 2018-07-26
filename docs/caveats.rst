@@ -6,7 +6,8 @@ There are things to be considered when using this library.
 Root URL or page template?
 --------------------------
 
-When visiting the exact URL of the page itself, 2 things can happen:
+A page that uses the AppPageMixin, can route to different views using a supplied url config. In the case of the root
+URL of the page (in other words, the actual page url), 2 different scenarios are possible:
 
 1) if there's a root URL in the pages' url config, it will be used as expected
 2) if no root URL is specified for the page, it will be served as any other wagtail page
