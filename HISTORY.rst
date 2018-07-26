@@ -5,7 +5,7 @@ History
 NEXT
 ----
 
-* Fix page preview for root url
+* Support for app page revisions
 
 0.2.3 (2018-05-29)
 ------------------

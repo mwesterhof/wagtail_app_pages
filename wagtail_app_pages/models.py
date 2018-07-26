@@ -1,6 +1,8 @@
+from django.shortcuts import get_object_or_404
 from django.urls.exceptions import Resolver404
 
-from wagtail_app_pages.compatibility import get_resolver, RouteResult
+from wagtail_app_pages.compatibility import get_resolver, PageRevision, RouteResult
+from wagtail_app_pages.utils import extract_params
 
 
 class AppPageMixin:
@@ -8,9 +10,31 @@ class AppPageMixin:
     def url_config(self):
         raise NotImplementedError('url_config')
 
+    @classmethod
+    def from_json(cls, json_data):
+        # we're overriding this method to intercept the revision data
+        revision = PageRevision.objects.filter(content_json=json_data).first()
+        obj = super().from_json(json_data)
+        obj._loaded_from_revision = revision.pk
+        return obj
+
     def reverse(self, name, *args, **kwargs):
         sub_url = self._apppage_url_resolver.reverse(name, *args, **kwargs)
-        return self.url + sub_url.lstrip('/')
+        url = self.url + sub_url.lstrip('/')
+        url, query_string = extract_params(url)
+
+        revision_id = getattr(self, '_loaded_from_revision', None)
+        if revision_id:
+            revision_query = 'apppage_revision={}'.format(revision_id)
+
+            if query_string:
+                query_string += '&' + revision_query
+            else:
+                query_string = revision_query
+
+        if query_string:
+            return '?'.join([url, query_string])
+        return url
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -33,10 +57,18 @@ class AppPageMixin:
         if view is None:
             return super().serve(request, *args, **kwargs)
 
-        request.parent_page = self
+        page_instance = self
+        revision_id = request.GET.get('apppage_revision')
+        if revision_id is not None:
+            revision = get_object_or_404(self.revisions, id=revision_id)
+            page_instance = revision.as_page_object()
+            self._loaded_from_revision = revision_id
+
+        request.parent_page = page_instance
+
         # if this is a class-based view, we'll make the parent page available as an attribute as well
         if getattr(view, 'view_class', None):
-            view.view_class.parent_page = self
+            view.view_class.parent_page = page_instance
 
         return view(request, *args, **kwargs)
 
