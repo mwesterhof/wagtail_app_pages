@@ -17,3 +17,4 @@ Features
 * Adds a *reverse()* method to pages, so we can do reverse lookups with respect to the page itself
 * Provides a template tag to reverse urls within the same page (automatically detecting parent page if available)
 * Full url conf support, including django 2.0's new *path()* urls
+* Full support for app page revisions, explore older versions of the app page

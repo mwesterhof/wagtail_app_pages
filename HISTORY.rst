@@ -2,8 +2,8 @@
 History
 =======
 
-NEXT
-----
+0.2.4 (2018-07-26
+-----------------
 
 * Support for app page revisions
 
