@@ -2,6 +2,11 @@
 History
 =======
 
+0.2.5 (2018-08-06)
+------------------
+
+* ensure that parent page will also be available as "page" in the context
+
 0.2.4 (2018-07-26
 -----------------
 
