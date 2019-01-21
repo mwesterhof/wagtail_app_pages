@@ -12,7 +12,7 @@ with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
 requirements = [
-    'wagtail>=1.11.1,<2.3',
+    'wagtail>=1.11.1,<2.5',
 ]
 
 setup_requirements = []
