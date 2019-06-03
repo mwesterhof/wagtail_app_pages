@@ -1,4 +1,5 @@
-# Wagtail App Pages
+Wagtail App Pages
+=================
 
 This module provides full MVC support for wagtail pages. Using it, it's possible to extend routing for a page by using
 url configs and views. It addresses the same problem solved by wagtail's own RoutablePageMixin, without breaking clean
