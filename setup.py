@@ -12,7 +12,7 @@ with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
 requirements = [
-    'wagtail>=1.11.1,<2.5',
+    'wagtail>=1.11.1,<2.6',
 ]
 
 setup_requirements = []
@@ -30,9 +30,9 @@ setup(
         "Programming Language :: Python :: 2",
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
     ],
     description="Full MVC support for wagtail pages",
     install_requires=requirements,
@@ -46,6 +46,6 @@ setup(
     test_suite='tests.testproject.testproject.tests',
     tests_require=test_requirements,
     url='https://github.com/mwesterhof/wagtail_app_pages',
-    version='0.2.7',
+    version='0.2.8',
     zip_safe=False,
 )
