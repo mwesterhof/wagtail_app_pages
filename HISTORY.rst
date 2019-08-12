@@ -2,6 +2,11 @@
 History
 =======
 
+NEXT
+----
+
+* fix issue regarding url resolving in multi-site scenarios
+
 0.2.8 (2019-06-03)
 ------------------
 
