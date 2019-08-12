@@ -38,7 +38,13 @@ class AppPageMixin:
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self._apppage_url_resolver = get_resolver(self.url, self.url_config)
+        url_parts = self.get_url_parts()
+        if url_parts:
+            _, _, relative_url = url_parts
+        else:
+            relative_url = self.url
+
+        self._apppage_url_resolver = get_resolver(relative_url, self.url_config)
 
     def route(self, request, path_components):
         # url config takes precedence over normal wagtail routing
