@@ -2,6 +2,16 @@
 History
 =======
 
+0.2.10 (2019-09-02)
+-------------------
+
+* Wagtail 2.6 support
+
+0.2.9 (2019-08-12)
+------------------
+
+* fix issue regarding url resolving in multi-site scenarios
+
 0.2.8 (2019-06-03)
 ------------------
 
