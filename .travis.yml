@@ -1,0 +1,90 @@
+sudo: false
+language: python
+cache: pip
+matrix:
+  include:
+    # Wagtail 1.11
+    - env: TOXENV=py35-wt111
+      python: 3.5
+    - env: TOXENV=py36-wt111
+      python: 3.6
+
+    # Wagtail 2.0
+    - env: TOXENV=py35-wt20
+      python: 3.5
+    - env: TOXENV=py36-wt20
+      python: 3.6
+    - env: TOXENV=py37-wt20
+      python: 3.7
+      sudo: true
+      dist: xenial
+
+    # Wagtail 2.1
+    - env: TOXENV=py35-wt21
+      python: 3.5
+    - env: TOXENV=py36-wt21
+      python: 3.6
+    - env: TOXENV=py37-wt21
+      python: 3.7
+      sudo: true
+      dist: xenial
+
+    # Wagtail 2.2
+    - env: TOXENV=py35-wt22
+      python: 3.5
+    - env: TOXENV=py36-wt22
+      python: 3.6
+    - env: TOXENV=py37-wt22
+      python: 3.7
+      sudo: true
+      dist: xenial
+
+    # Wagtail 2.3
+    - env: TOXENV=py35-wt23
+      python: 3.5
+    - env: TOXENV=py36-wt23
+      python: 3.6
+    - env: TOXENV=py37-wt23
+      python: 3.7
+      sudo: true
+      dist: xenial
+
+    # Wagtail 2.4
+    - env: TOXENV=py35-wt24
+      python: 3.5
+    - env: TOXENV=py36-wt24
+      python: 3.6
+    - env: TOXENV=py37-wt24
+      python: 3.7
+      sudo: true
+      dist: xenial
+
+    # Wagtail 2.5
+    - env: TOXENV=py35-wt25
+      python: 3.5
+    - env: TOXENV=py36-wt25
+      python: 3.6
+    - env: TOXENV=py37-wt25
+      python: 3.7
+      sudo: true
+      dist: xenial
+
+  # Wagtail 2.6
+    - env: TOXENV=py35-wt26
+      python: 3.5
+    - env: TOXENV=py36-wt26
+      python: 3.6
+    - env: TOXENV=py37-wt26
+      python: 3.7
+      sudo: true
+      dist: xenial
+
+    # Flake 8
+    - env: TOXENV=flake8
+      python: 3.7
+      sudo: true
+      dist: xenial
+install:
+  - pip install tox
+script:
+  - tox -e $TOXENV
