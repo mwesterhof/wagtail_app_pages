@@ -19,3 +19,5 @@ Features
 * Provides a template tag to reverse urls within the same page (automatically detecting parent page if available)
 * Full url conf support, including django 2.0's new *path()* urls
 * Full support for app page revisions, explore older versions of the app page
+
+[![Build Status](https://api.travis-ci.com/mwesterhof/wagtail_app_pages.svg?branch=master)](https://travis-ci.com/mwesterhof/wagtail_app_pages)
