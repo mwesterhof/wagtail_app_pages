@@ -79,6 +79,16 @@ matrix:
       sudo: true
       dist: xenial
 
+  # Wagtail 2.7
+    - env: TOXENV=py35-wt27
+      python: 3.5
+    - env: TOXENV=py36-wt27
+      python: 3.6
+    - env: TOXENV=py37-wt27
+      python: 3.7
+      sudo: true
+      dist: xenial
+
     # Flake 8
     - env: TOXENV=flake8
       python: 3.7
