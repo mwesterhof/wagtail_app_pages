@@ -85,7 +85,10 @@ class AppPageMixin:
     
     def __getstate__(self):
         state = super().__getstate__()
-        del state["_apppage_url_resolver"]
+        try:
+            del state["_apppage_url_resolver"]
+        except KeyError:
+            pass
         return state
     
     def __setstate__(self, state):
