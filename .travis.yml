@@ -4,10 +4,10 @@ cache: pip
 matrix:
   include:
     # Wagtail 1.11
-    - env: TOXENV=py35-wt111
-      python: 3.5
-    - env: TOXENV=py36-wt111
-      python: 3.6
+    #- env: TOXENV=py35-wt111
+    #  python: 3.5
+    #- env: TOXENV=py36-wt111
+    #  python: 3.6
 
     # Wagtail 2.0
     - env: TOXENV=py35-wt20
