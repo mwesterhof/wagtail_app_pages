@@ -1,5 +1,7 @@
 import os
 
+from wagtail import VERSION as WAGTAIL_VERSION
+
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 
@@ -41,9 +43,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
 
-    'wagtail.core.middleware.SiteMiddleware',
     'wagtail.contrib.redirects.middleware.RedirectMiddleware',
 ]
+
+if WAGTAIL_VERSION < (2, 11):
+    MIDDLEWARE.append('wagtail.core.middleware.SiteMiddleware')
 
 ROOT_URLCONF = 'testproject.urls'
 
