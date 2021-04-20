@@ -1,4 +1,4 @@
 Sphinx==1.7.1
 Django==2.2.18
-wagtail==2.0
+wagtail==2.11.6
 sphinx-rtd-theme==0.3.1
