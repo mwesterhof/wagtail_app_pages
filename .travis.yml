@@ -109,6 +109,38 @@ matrix:
       sudo: true
       dist: xenial
 
+  # Wagtail 2.10
+    - env: TOXENV=py36-wt210
+      python: 3.6
+    - env: TOXENV=py37-wt210
+      python: 3.7
+      sudo: true
+      dist: xenial
+
+  # Wagtail 2.11
+    - env: TOXENV=py36-wt211
+      python: 3.6
+    - env: TOXENV=py37-wt211
+      python: 3.7
+      sudo: true
+      dist: xenial
+
+  # Wagtail 2.12
+    - env: TOXENV=py36-wt212
+      python: 3.6
+    - env: TOXENV=py37-wt212
+      python: 3.7
+      sudo: true
+      dist: xenial
+
+  # Wagtail 2.13
+    - env: TOXENV=py36-wt213
+      python: 3.6
+    - env: TOXENV=py37-wt213
+      python: 3.7
+      sudo: true
+      dist: xenial
+
   # Flake 8
     - env: TOXENV=flake8
       python: 3.7
