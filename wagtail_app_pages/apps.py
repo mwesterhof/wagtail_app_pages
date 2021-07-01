@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class AppPagesConfig(AppConfig):
-    name = 'app_pages'
+    name = 'wagtail_app_pages'
