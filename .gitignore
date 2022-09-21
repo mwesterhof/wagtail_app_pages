@@ -42,3 +42,4 @@ docs/_build/
 # other
 tags
 .python-version
+test_db.sqlite3
