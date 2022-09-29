@@ -17,9 +17,14 @@ else:
 try:
     from wagtail.core.url_routing import RouteResult
 except ImportError:
-    from wagtail.wagtailcore.url_routing import RouteResult
+    from wagtail.url_routing import RouteResult
 
 try:
     from wagtail.core.models import PageRevision
 except ImportError:
-    from wagtail.wagtailcore.models import PageRevision
+    from wagtail.models import Revision
+
+else:
+    class Revision(PageRevision):
+        class Meta:
+            proxy = True

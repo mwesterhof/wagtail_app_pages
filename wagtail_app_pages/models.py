@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404
 from django.urls.exceptions import Resolver404
 
-from wagtail_app_pages.compatibility import get_resolver, PageRevision, RouteResult
+from wagtail_app_pages.compatibility import get_resolver, Revision, RouteResult
 from wagtail_app_pages.utils import extract_params
 
 
@@ -12,11 +12,18 @@ class AppPageMixin:
 
     @classmethod
     def from_json(cls, json_data):
-        # we're overriding this method to intercept the revision data
-        revision = PageRevision.objects.filter(content_json=json_data).first()
+        # legacy
+        revision = Revision.objects.filter(content_json=json_data).first()
         obj = super().from_json(json_data)
         obj._loaded_from_revision = revision.pk
         return obj
+
+    def with_content_json(self, content):
+        # we're overriding this method to intercept the revision data
+        revision = Revision.objects.filter(content=content).first()
+        page = super().with_content_json(content)
+        page._loaded_from_revision = revision.pk
+        return page
 
     def reverse(self, name, *args, **kwargs):
         sub_url = self._apppage_url_resolver.reverse(name, *args, **kwargs)
