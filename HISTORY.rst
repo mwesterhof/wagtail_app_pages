@@ -2,6 +2,11 @@
 History
 =======
 
+0.3.0
+-------------------
+
+* Release targeting exclusively Wagtail 3x and 4x versions
+
 0.2.21
 -------------------
 

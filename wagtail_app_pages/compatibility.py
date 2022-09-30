@@ -28,3 +28,4 @@ else:
     class Revision(PageRevision):
         class Meta:
             proxy = True
+            app_label = 'wagtailcore'
