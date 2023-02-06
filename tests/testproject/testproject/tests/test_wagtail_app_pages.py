@@ -1,7 +1,7 @@
 import unittest
 
 from django.test import Client
-from wagtail.core.models import Page
+from wagtail.models import Page
 
 
 class TestWagtail_app_pages(unittest.TestCase):

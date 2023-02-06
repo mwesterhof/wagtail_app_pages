@@ -1,4 +1,4 @@
-from wagtail.core.models import Page
+from wagtail.models import Page
 from wagtail_app_pages.models import AppPageMixin
 
 

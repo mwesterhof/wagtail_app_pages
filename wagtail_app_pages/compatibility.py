@@ -20,7 +20,7 @@ except ImportError:
     from wagtail.url_routing import RouteResult
 
 try:
-    from wagtail.core.models import PageRevision
+    from wagtail.models import PageRevision
 except ImportError:
     from wagtail.models import Revision
 
