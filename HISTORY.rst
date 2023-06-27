@@ -1,6 +1,11 @@
 =======
 History
 =======
+0.3.2
+-------------------
+
+* Wagtail support for 5.0, dropping support for 3
+
 0.3.1
 -------------------
 
