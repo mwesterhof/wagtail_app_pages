@@ -12,7 +12,7 @@ with open("HISTORY.rst") as history_file:
     history = history_file.read()
 
 requirements = [
-    "wagtail>=5.0,<=5.2",
+    "wagtail>=5.0,<5.3",
 ]
 
 setup_requirements = []
@@ -45,6 +45,6 @@ setup(
     test_suite="tests.testproject.testproject.tests",
     tests_require=test_requirements,
     url="https://github.com/mwesterhof/wagtail_app_pages",
-    version="0.3.4",
+    version="0.3.5",
     zip_safe=False,
 )
