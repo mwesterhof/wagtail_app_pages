@@ -21,7 +21,7 @@ INSTALLED_APPS = [
     'wagtail.images',
     'wagtail.search',
     'wagtail.admin',
-    'wagtail.core',
+    'wagtail',
 
     'modelcluster',
     'taggit',
@@ -49,7 +49,7 @@ MIDDLEWARE = [
 ]
 
 if WAGTAIL_VERSION < (2, 11):
-    MIDDLEWARE.append('wagtail.core.middleware.SiteMiddleware')
+    MIDDLEWARE.append('wagtail.middleware.SiteMiddleware')
 
 ROOT_URLCONF = 'testproject.urls'
 
